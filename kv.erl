@@ -38,8 +38,6 @@ insert(K,V,{node,L,KN,_VN,R}) ->
       insert(K,V,R)
   end.
 
-lookup(_,leaf) ->
-  false;
 lookup(K,{node,L,KN,VN,R}) ->
   if K<KN ->
       lookup(K,R);
@@ -48,6 +46,8 @@ lookup(K,{node,L,KN,VN,R}) ->
      K>KN ->
       lookup(K,L)
   end.
+lookup(_,leaf) ->
+  false;
 
 %% State machine
 
